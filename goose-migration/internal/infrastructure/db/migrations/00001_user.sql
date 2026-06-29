@@ -1,6 +1,6 @@
 -- +goose Up
 -- +goose StatementBegin
--- CREATE EXTENSION IF NOT EXISTS "pg_uuidv7";
+CREATE EXTENSION IF NOT EXISTS "pg_uuidv7";
 
 CREATE TABLE IF NOT EXISTS users (
   id UUID DEFAULT uuid_generate_v7() PRIMARY KEY,
@@ -20,5 +20,5 @@ CREATE TABLE IF NOT EXISTS users (
 -- +goose Down
 -- +goose StatementBegin
 DROP TABLE IF EXISTS users;
--- DROP EXTENSION IF EXISTS "pg_uuidv7";
+DROP EXTENSION IF EXISTS "pg_uuidv7";
 -- +goose StatementEnd

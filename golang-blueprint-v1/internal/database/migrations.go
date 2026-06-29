@@ -3,9 +3,10 @@ package database
 import (
 	"embed"
 	"fmt"
+	"golang-blueprint-v1/config"
+
 	_ "github.com/jackc/pgx/v5/stdlib"
 	"github.com/pressly/goose/v3"
-	"golang-blueprint-v1/config"
 )
 
 //go:embed migrations/*.sql
@@ -17,7 +18,6 @@ func RunMigrations(cfg *config.DBConfig) error {
 	if err != nil {
 		return err
 	}
-
 	defer db.Close()
 	// setup embedded FS
 	goose.SetBaseFS(embedMigrations)
