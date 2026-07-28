@@ -12,6 +12,13 @@ import (
 	"github.com/go-playground/validator"
 )
 
+type CategoryService interface {
+	Create(context context.Context, request web.CategoryCreateRequest) web.CategoryResponse
+	Update(context context.Context, request web.CategoryUpdateRequest) web.CategoryResponse
+	Delete(context context.Context, categoryId int)
+	FindById(context context.Context, categoryId int) web.CategoryResponse
+	FindAll(context context.Context) []web.CategoryResponse
+}
 type CategoryServiceImpl struct {
 	CategoryRepository repository.CategoryRepository
 	DB                 *sql.DB
