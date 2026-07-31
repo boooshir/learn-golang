@@ -1,0 +1,8 @@
+app:
+  name:"lear golang viper"
+  version:"1.0.0"
+  author:"boshir"
+database:
+  show_sql: true 
+  host: "localhost"
+  post: 3306
